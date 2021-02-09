@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 @RestController
 @RequestMapping("/v1")
 public class FruitController extends Controller {
@@ -25,11 +26,12 @@ public class FruitController extends Controller {
     @Autowired
     private FruitService fruitService;
 
-    @PostMapping("/fruit")
-    public FruitResponseDTO createFruits(@PathVariable @Valid CreateFruitInputDTO createFruitInputDTO){
-        FruitResponseDTO fruitCartResponseDTO = fruitService.createFruits(createFruitInputDTO);
-        updateHttpStatus(fruitCartResponseDTO,response);
-        return fruitCartResponseDTO;
+
+    @RequestMapping(method = RequestMethod.POST, value = "/Fruit/{create}")
+    public FruitResponseDTO createFruit(@PathVariable @Valid CreateFruitInputDTO createFruitInputDTO){
+        FruitResponseDTO createFruit = fruitService.createFruit(createFruitInputDTO);
+        updateHttpStatus(createFruit,response);
+        return createFruit;
     }
 
     @PostMapping("/rotten/{fruitId}")
@@ -39,14 +41,14 @@ public class FruitController extends Controller {
         return createFruits;
     }
 
-    @GetMapping("/fruit")
-    public FruitListResponseDTO fetchFruitCart(@PageableDefault(value = 20) Pageable pageable){
-        FruitListResponseDTO fetchFruitCart= fruitService.fetchFruitCart(pageable);
-        updateHttpStatus(fetchFruitCart,response);
-        return fetchFruitCart;
+    @GetMapping("/fruitCart")
+    public FruitListResponseDTO fetchFruit(@PageableDefault(value = 20) Pageable pageable){
+        FruitListResponseDTO fetchFruit= fruitService.fetchFruit(pageable);
+        updateHttpStatus(fetchFruit,response);
+        return fetchFruit;
     }
 
-    @GetMapping("/fruit/{fruitId}")
+    @GetMapping("/fruitCart/{fruitId}")
     public FruitResponseDTO fetchFruitCart(@PathVariable(name = "fruitId") String fruitId){
         FruitResponseDTO fruitCartResponseDTO = fruitService.fetchSingleFruit(fruitId);
         updateHttpStatus(fruitCartResponseDTO,response);

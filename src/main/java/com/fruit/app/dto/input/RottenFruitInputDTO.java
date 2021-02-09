@@ -1,17 +1,17 @@
 package com.fruit.app.dto.input;
 
-import com.fruit.app.models.RottenFruit;
+import com.fruit.app.models.extras.RottenFruit;
 
 import java.util.List;
 
 public class RottenFruitInputDTO {
-    List<RottenFruit> fruits;
+    List<RottenFruit> fruitCartForms;
 
-    public List<RottenFruit> getFruits() {
-        return fruits;
+    public List<RottenFruit> getFruitCartForms() {
+        return fruitCartForms;
     }
 
-    public void setFruit(List<RottenFruit> fruit) {
-        this.fruits = fruit;
+    public void setFruitCartForms(List<RottenFruit> fruitCartForms) {
+        this.fruitCartForms = fruitCartForms;
     }
 }

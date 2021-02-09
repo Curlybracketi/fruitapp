@@ -1,4 +1,4 @@
-package com.fruit.app.models;
+package com.fruit.app.models.extras;
 
 public class RottenFruit {
     private String fruitId;

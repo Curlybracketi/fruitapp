@@ -4,7 +4,7 @@ import com.fruit.app.dto.enums.Status;
 import com.fruit.app.models.FruitCart;
 
 public class FruitCartResponseDTO extends  StandardResponseDTO {
-    FruitCart fruitcart;
+    FruitCart fruitCart;
 
     public FruitCartResponseDTO() {
     }
@@ -13,17 +13,17 @@ public class FruitCartResponseDTO extends  StandardResponseDTO {
         super(status);
     }
 
-    public FruitCartResponseDTO(Status status, FruitCart fruitcart) {
+    public FruitCartResponseDTO(Status status, FruitCart fruitCart) {
         super(status);
-        this.fruitcart = fruitcart;
+        this.fruitCart = fruitCart;
     }
 
     public FruitCart getFruitCart() {
-        return fruitcart;
+        return fruitCart;
     }
 
-    public void setAttendance(FruitCart fruitcart) {
-        this.fruitcart = fruitcart;
+    public void setFruitCart(FruitCart fruitCart) {
+        this.fruitCart = fruitCart;
     }
 
 }

@@ -64,5 +64,6 @@ public class FruitCart {
         return numberOfSoldFruits;
     }
 
-    public void setNumberOfSoldFruits(int numberOfSoldFruits) { this.numberOfSoldFruits = numberOfSoldFruits; }
+    public void setNumberOfSoldFruits(int numberOfSoldFruits)
+    { this.numberOfSoldFruits = numberOfSoldFruits; }
 }
