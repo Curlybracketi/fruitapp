@@ -46,7 +46,7 @@ import java.util.List;
   }
 
   @Override
-  public FruitCartResponseDTO createFruits(RottenFruitInputDTO dto) {
+  public FruitCartResponseDTO markFruitCart(RottenFruitInputDTO dto) {
    try{
     FruitCart fruitcart = new FruitCart();
     fruitcart.setDate(new Date());
@@ -92,7 +92,7 @@ import java.util.List;
    return new FruitListResponseDTO(Status.SUCCESS,FruitList);
   }
 
-  @Override
+ /** @Override
   public FruitCartResponseDTO fetchFruitCart(FetchFruitCartInputDTO dto) {
    FruitCart fruit = fruitcartRepository.findByDate(dto.getDate());
    if (fruit == null){
@@ -100,7 +100,7 @@ import java.util.List;
    }
    return  new FruitCartResponseDTO(Status.SUCCESS,fruit);
 
-  }
+  } */
 
   @Override
   public FruitResponseDTO fetchSingleFruit(String fruitId) {

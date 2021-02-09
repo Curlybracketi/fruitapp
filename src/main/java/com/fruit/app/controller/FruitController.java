@@ -33,8 +33,8 @@ public class FruitController extends Controller {
     }
 
     @PostMapping("/rotten/{fruitId}")
-    public FruitCartResponseDTO createFruits(@PathVariable(name ="fruitId") RottenFruitInputDTO dto){
-        FruitCartResponseDTO createFruits = fruitService.createFruits(dto);
+    public FruitCartResponseDTO markFruitCart(@PathVariable(name ="fruitId") RottenFruitInputDTO dto){
+        FruitCartResponseDTO createFruits = fruitService.markFruitCart(dto);
         updateHttpStatus(createFruits,response);
         return createFruits;
     }

@@ -12,11 +12,9 @@ import org.springframework.data.domain.Pageable;
 public interface FruitService  {
     FruitResponseDTO createFruits(CreateFruitInputDTO createFruitInputDTO);
 
-    FruitCartResponseDTO createFruits(RottenFruitInputDTO dto);
+    FruitCartResponseDTO markFruitCart(RottenFruitInputDTO dto);
 
     FruitListResponseDTO fetchFruitCart(Pageable pageable);
-
-    FruitCartResponseDTO fetchFruitCart(FetchFruitCartInputDTO dto);
 
     FruitResponseDTO fetchSingleFruit(String fruitId);
 }
