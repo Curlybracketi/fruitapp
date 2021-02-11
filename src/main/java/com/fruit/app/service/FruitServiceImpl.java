@@ -115,6 +115,19 @@ import java.util.List;
     return new FruitResponseDTO(Status.SUCCESS, fruit);
   }
 
+  @Override
+  public FruitResponseDTO deleteFruit(String fruitId) {
+
+   Fruit fruit  = fruitRepository.deleteBy_id(fruitId);
+
+   if (fruit == null) {
+    return new FruitResponseDTO(Status.NO_CONTENT);
+   }
+
+   return new FruitResponseDTO(Status.INTERNAL_ERROR);
+  }
+
+
   private <T> List<T> getExisting(List<T> t) {
    return t == null ? new ArrayList() : t;
   }

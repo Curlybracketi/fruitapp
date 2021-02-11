@@ -20,4 +20,6 @@ public interface FruitService  {
     FruitCartResponseDTO fetchFruitCart(FetchFruitCartInputDTO dto);
 
     FruitResponseDTO fetchSingleFruit(String fruitId);
+
+    FruitResponseDTO deleteFruit(String fruitId);
 }

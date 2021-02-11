@@ -28,30 +28,55 @@ public class FruitController extends Controller {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/Fruit/{create}")
-    public FruitResponseDTO createFruit(@PathVariable @Valid CreateFruitInputDTO createFruitInputDTO){
+    public FruitResponseDTO createFruit(@PathVariable CreateFruitInputDTO createFruitInputDTO) {
         FruitResponseDTO createFruit = fruitService.createFruit(createFruitInputDTO);
-        updateHttpStatus(createFruit,response);
+        updateHttpStatus(createFruit, response);
         return createFruit;
     }
 
     @PostMapping("/rotten/{fruitId}")
-    public FruitCartResponseDTO markFruitCart(@PathVariable(name ="fruitId") RottenFruitInputDTO dto){
+    public FruitCartResponseDTO markFruitCart(@PathVariable(name = "fruitId") RottenFruitInputDTO dto) {
         FruitCartResponseDTO createFruits = fruitService.markFruitCart(dto);
-        updateHttpStatus(createFruits,response);
+        updateHttpStatus(createFruits, response);
         return createFruits;
     }
 
     @GetMapping("/fruitCart")
-    public FruitListResponseDTO fetchFruit(@PageableDefault(value = 20) Pageable pageable){
-        FruitListResponseDTO fetchFruit= fruitService.fetchFruit(pageable);
-        updateHttpStatus(fetchFruit,response);
+    public FruitListResponseDTO fetchFruit(@PageableDefault(value = 20) Pageable pageable) {
+        FruitListResponseDTO fetchFruit = fruitService.fetchFruit(pageable);
+        updateHttpStatus(fetchFruit, response);
         return fetchFruit;
     }
 
     @GetMapping("/fruitCart/{fruitId}")
-    public FruitResponseDTO fetchFruitCart(@PathVariable(name = "fruitId") String fruitId){
+    public FruitResponseDTO fetchFruitCart(@PathVariable(name = "fruitId") String fruitId) {
         FruitResponseDTO fruitCartResponseDTO = fruitService.fetchSingleFruit(fruitId);
-        updateHttpStatus(fruitCartResponseDTO,response);
+        updateHttpStatus(fruitCartResponseDTO, response);
         return fruitCartResponseDTO;
     }
+
+
+@DeleteMapping("/fruitCart/{fruitId}")
+    public FruitResponseDTO deleteFruit(@PathVariable (name = "fruitId") String fruitId){
+        FruitResponseDTO fruitCartResponseDTO = fruitService.deleteFruit(fruitId);
+    updateHttpStatus(fruitCartResponseDTO, response);
+    return fruitCartResponseDTO;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

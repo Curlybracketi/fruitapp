@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 
 import javax.servlet.http.HttpServletResponse;
 
-public class Controller {
+ class Controller {
     <T extends StandardResponseDTO> void updateHttpStatus(T responseDTO, HttpServletResponse response) {
         switch (responseDTO.getStatus()) {
             case SUCCESS:
